@@ -1,0 +1,19 @@
+/* detail.wxss */
+.center{
+  text-align: center;
+}
+.both-margin{
+  margin-left: 10%;
+  margin-right: 10%;
+  border-left: 1px solid #e5e5e5; 
+  border-right: 1px solid #e5e5e5; 
+}
+.pull-right{
+  float: right;
+}
+.pull-left{
+  float: left;
+}
+.clear{
+  clear: both;
+}

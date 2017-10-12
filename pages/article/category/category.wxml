@@ -1,0 +1,30 @@
+<view class="page list">
+  <view class="page__bd">
+    <view class="weui-cells" wx:if="article_category.length > 0">
+      <view class="weui-cell weui-cell_access" wx:for="{{ article_category }}" wx:key="">
+        <navigator class="weui-media-box weui-media-box_appmsg" url="../list/list?category_id={{item.id}}">
+          <view class="weui-cell__bd">
+            <view class="weui-media-box__title">
+              <view class="full">
+                {{item.title }}
+              </view>
+            </view>
+            <view class="weui-cell__ft">
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <!-- <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft"></view>
+        </view>
+      </view> -->
+    </view>
+
+    <view wx:else class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips">暂无数据</view>
+    </view>
+  </view>
+  <include src="../../public/footer.wxml"/>
+</view>

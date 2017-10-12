@@ -1,0 +1,26 @@
+<view class="page">
+  <view class="page__hd">
+    {{article.title}}
+  </view>
+  <view class="page__bd">
+    <view class="center">
+      <video id="myVideo" src="{{src}}" bindtimeupdate="timeUpdate" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+
+    </view>
+    <view class="both-margin">
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <input class="weui-input" value="{{inputValue}}"  bindblur="bindInputBlur"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="both-margin weui-btn-area">
+      <button class="pull-left" bindtap="bindButtonTap">获取视频</button>
+      <button class="pull-right" type="primary" bindtap="bindSendDanmu">发送弹幕</button>
+      <view class="clear"></view>
+    </view>
+  </view>
+  <include src="../../public/footer.wxml"/>
+</view>

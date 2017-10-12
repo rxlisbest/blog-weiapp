@@ -1,0 +1,10 @@
+<view class="page__ft j_bottom">
+  <!-- <i class="fa fa-futbol-o" aria-hidden="true"></i>
+  我要做网站 -->
+  <view class="weui-footer">
+      <view class="weui-footer__links">
+          <!-- <view href="javascript:home();" class="weui-footer__link">WeUI首页</view>  -->
+      </view>
+      <view class="weui-footer__text">Copyright © 2008-2017 我要做网站</view>
+  </view>
+</view> 
