@@ -8,6 +8,7 @@ Page({
   data: {
     type: 0,
     article_category: [],
+    loading: true,
   },
 
   /**
@@ -85,6 +86,7 @@ Page({
             models.push(res.data[i]);
           }
           _this.setData({ article_category: models })
+          _this.setData({ loading: false });
         }
       }
     })

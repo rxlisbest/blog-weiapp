@@ -9,7 +9,7 @@
   </view> -->
   <view class="page__bd">
     <view wx:if="{{articles.pages.totalPage}}" class="weui-panel weui-panel_access">
-       <view class="weui-panel__hd">视频列表</view> 
+       <view class="weui-panel__hd">文字列表</view> 
       <view class="weui-panel__bd" wx:for="{{ articles.models }}"wx:key="">
         <navigator class="weui-media-box weui-media-box_appmsg" url="../detail/detail?id={{item.id}}">
           <!-- <view class="weui-media-box__hd">

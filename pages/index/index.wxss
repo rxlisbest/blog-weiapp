@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 10%;
+  margin-bottom: 20%;
 }
 
 .userinfo-avatar {
@@ -83,3 +84,17 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 } */
+
+.index-icon{
+  margin: 2em auto;
+  width: 50%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.page__bd{
+  text-align: center;
+}
+.fa-6x {
+  font-size:6em;
+}
