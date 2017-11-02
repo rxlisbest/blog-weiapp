@@ -64,9 +64,9 @@ Page({
    */
   onReachBottom: function () {
     let pages = this.data.articles.pages;
-    if (pages.totalPage > 1 && pages.totalPage - 1 > pages.page) {
+    if (pages.totalPage > 1 && pages.totalPage - 1 >= pages.page) {
       this.setData({ loading: true });
-      this.setData({ 'articles.pages.page': pages.page + 1 });
+      this.setData({ 'articles.pages.page': parseInt(pages.page) + 1 });
       this.getArticles();
     }
     else{

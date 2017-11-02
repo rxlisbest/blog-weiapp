@@ -21,6 +21,8 @@ Page({
       file_id: 0,
       type: 1,
     },
+    danmuTimes: 0,
+    danmuInterval: 20,
     danmuList: [],
     current_time: 0
   },
@@ -30,7 +32,9 @@ Page({
   onReady: function (res) {
     this.videoContext = wx.createVideoContext('myVideo')
     var data = this.getArticle();
-    this.getDanmu();
+    
+    var danmuInterval = this.data.danmuInterval;
+    this.getDanmu(0, danmuInterval*2);
   },
   bindInputBlur: function (e) {
     this.setData({
@@ -75,7 +79,17 @@ Page({
     // })
   },
   timeUpdate: function (event){
+    let danmuInterval = this.data.danmuInterval;
+    console.log(danmuInterval);
     var current_time = Math.round(event.detail.currentTime);
+    console.log(current_time);
+    let danmuTimes = 0;
+    if (Math.floor(current_time / danmuInterval) > this.data.danmuTimes){
+      danmuTimes = Math.floor(current_time / danmuInterval);
+      console.log(danmuTimes);
+      this.setData({ danmuTimes: danmuTimes });
+      this.getDanmu(danmuTimes * danmuInterval + danmuInterval, danmuTimes * danmuInterval + danmuInterval*2);
+    }
     this.setData({ current_time: current_time })
   },
   bindSendDanmu: function () {
@@ -98,6 +112,16 @@ Page({
         });
         return false;
       }
+
+      let danmuList = _this.data.danmuList;
+      let danmu = {};
+      danmu = {
+        text: _this.data.inputValue,
+        color: getRandomColor(),
+        time: _this.data.current_time,
+      };
+      danmuList.push(danmu);
+      _this.setData({ danmuList: danmuList })
       wx.getStorage({
         key: 'openid',
         success: function (res) {
@@ -191,7 +215,7 @@ Page({
       }
     })
   },
-  getDanmu: function () {
+  getDanmu: function (start_time, end_time) {
     let _this = this;
     wx.request({
       url: App.api.discussions.index,
@@ -202,10 +226,11 @@ Page({
       data: {
         type: 1,
         article_id: _this.data.article.id,
+        time: start_time.toString() + ',' + end_time.toString() 
       },
       success: function (res) {
         if (res.statusCode == 200) {
-          let danmuList = [];
+          let danmuList = _this.data.danmuList;
           let danmu = {};
           let models = res.data;
           for (let i in models) {
