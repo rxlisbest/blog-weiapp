@@ -80,15 +80,12 @@ Page({
   },
   timeUpdate: function (event){
     let danmuInterval = this.data.danmuInterval;
-    console.log(danmuInterval);
     var current_time = Math.round(event.detail.currentTime);
-    console.log(current_time);
     let danmuTimes = 0;
     if (Math.floor(current_time / danmuInterval) > this.data.danmuTimes){
       danmuTimes = Math.floor(current_time / danmuInterval);
-      console.log(danmuTimes);
       this.setData({ danmuTimes: danmuTimes });
-      this.getDanmu(danmuTimes * danmuInterval + danmuInterval, danmuTimes * danmuInterval + danmuInterval*2);
+      // this.getDanmu(danmuTimes * danmuInterval + danmuInterval, danmuTimes * danmuInterval + danmuInterval*2);
     }
     this.setData({ current_time: current_time })
   },
@@ -118,10 +115,9 @@ Page({
       danmu = {
         text: _this.data.inputValue,
         color: getRandomColor(),
-        time: _this.data.current_time,
+        time: _this.data.current_time + 1,
       };
-      danmuList.push(danmu);
-      _this.setData({ danmuList: danmuList })
+      this.videoContext.sendDanmu(danmu);
       wx.getStorage({
         key: 'openid',
         success: function (res) {
@@ -171,10 +167,6 @@ Page({
     //   duration: 1000
     // });
     // return false;
-    this.videoContext.sendDanmu({
-      text: this.inputValue,
-      color: getRandomColor()
-    })
   },
   getArticle: function(){
     var _this = this;
@@ -226,7 +218,7 @@ Page({
       data: {
         type: 1,
         article_id: _this.data.article.id,
-        time: start_time.toString() + ',' + end_time.toString() 
+        // time: start_time.toString() + ',' + end_time.toString() 
       },
       success: function (res) {
         if (res.statusCode == 200) {

@@ -72,7 +72,7 @@ Page({
     else{
       wx.showToast({
         title: '没有更多数据',
-        icon: 'success',
+        icon: 'none',
         duration: 1000
       })
     }
