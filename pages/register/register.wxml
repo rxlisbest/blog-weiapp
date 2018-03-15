@@ -14,7 +14,7 @@
           <view class="weui-label">手机号码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" bindblur="bindInputBlur"/>
+          <input class="weui-input" bindinput="bindInputBlur"/>
         </view>
         <view class="weui-cell__ft">
             <button class="weui-vcode-btn" disabled="{{sendSmsDisabled}}" bindtap="bindSendSms">{{sendSmsText}}</button>
@@ -36,7 +36,7 @@
           <view class="weui-label">短信验证码</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" bindblur="bindCodeInputBlur"/>
+          <input class="weui-input" bindinput="bindCodeInputBlur"/>
         </view>
       </view>
     </view>

@@ -19,7 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.getStorage({
+      key: "user_id",
+      success: function (res) {
+        var user_id = res.data;
+        if (user_id > 0) {
+          wx.navigateBack();
+        }
+      }
+    });
   },
 
   /**
@@ -81,7 +89,7 @@ Page({
     if (!_this.RecNum) {
       wx.showToast({
         title: '手机号码不能为空',
-        icon: 'success',
+        icon: 'none',
         duration: 1000
       });
       return false;
@@ -125,7 +133,7 @@ Page({
         else{
           wx.showToast({
             title: res.data.message,
-            icon: 'success',
+            icon: 'none',
             duration: 1000
           });
         }
@@ -137,7 +145,7 @@ Page({
     if (!_this.RecNum) {
       wx.showToast({
         title: '手机号码不能为空',
-        icon: 'success',
+        icon: 'none',
         duration: 1000
       });
       return false;
@@ -145,12 +153,11 @@ Page({
     if (!_this.code) {
       wx.showToast({
         title: '短信验证码不能为空',
-        icon: 'success',
+        icon: 'none',
         duration: 1000
       });
       return false;
     }
-
     wx.getStorage({
       key: "openid",
       success: function (res) {
@@ -168,18 +175,24 @@ Page({
           },
           success: function (res) {
             if (res.statusCode == 200) {
-              wx.setStorageSync('user_id', res.data.user_id)
+              wx.setStorage({
+                key: "user_id",
+                data: res.data.user_id
+              });
               wx.navigateBack();
             }
             else {
               wx.showToast({
                 title: res.data.message,
-                icon: 'success',
+                icon: 'none',
                 duration: 1000
               });
             }
           }
         })
+      },
+      fail: function(){
+        App.doLogin();
       } 
     });
   },

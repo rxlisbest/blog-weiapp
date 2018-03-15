@@ -96,7 +96,7 @@ Page({
       if (!_this.data.inputValue) {
         wx.showToast({
           title: '弹幕不能为空',
-          icon: 'warn',
+          icon: 'none',
           duration: 1000
         });
         return false;
@@ -104,7 +104,7 @@ Page({
       if (_this.data.inputValue.length > 15) {
         wx.showToast({
           title: '弹幕不能超15字',
-          icon: 'warn',
+          icon: 'none',
           duration: 1000
         });
         return false;
@@ -147,7 +147,7 @@ Page({
     else{
       wx.showModal({
         title: '提示',
-        content: '去注册？',
+        content: '发弹幕需注册，现在跳转？',
         success: function (res) {
           if (res.confirm) {
             wx.navigateTo({
