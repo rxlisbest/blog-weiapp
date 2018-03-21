@@ -19,6 +19,7 @@ export default {
   discussions: {
     'index': _host + '/v1/discussions',
     'create': _host + '/v1/discussions',
+    'random': _host + '/v1/discussions/random',
   },
   qiniu: {
     'token': _host + '/v1/qiniu/token',

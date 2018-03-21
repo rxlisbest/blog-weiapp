@@ -1,23 +1,24 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <view  bindtap="bindViewTap" class="userinfo"> 
     <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
-  </view>
+  </view> 
   <view class="page tabbar">
-    <view class="page__bd" style="height: 100%;">
+    <view class="page__bd" style="height: 100%;"> 
       <navigator url="../video/category/category?type=1" class="index-icon">
-        <view>
-          <i class="fa fa-file-video-o fa-6x"></i>
-          <!-- <view class="weui-grid__label">视频</view> -->
-        </view>
+        <i class="fa fa-file-video-o"></i>
+        去看视频 
+        <i class="fa fa-arrow-right"></i>
+        <!-- <view class="weui-grid__label">视频</view>  -->
       </navigator>
       <navigator url="../article/category/category?type=2" class="index-icon">
-        <view>
-          <i class="fa fa-file-word-o fa-6x"></i>
-          <!-- <view class="weui-grid__label">文字</view> -->
-        </view>
+        <i class="fa fa-file-word-o"></i>
+        去看文字 
+        <i class="fa fa-arrow-right"></i>
+        <!-- <view class="weui-grid__label">文字</view>  -->
       </navigator>
+      <view class="clear"></view>
       <!-- <view class="weui-grids">
          <navigator wx:for="0123456" url="" class="weui-grid gray">
           <view class="weui-grid__icon">

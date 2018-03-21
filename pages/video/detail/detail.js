@@ -210,7 +210,7 @@ Page({
   getDanmu: function (start_time, end_time) {
     let _this = this;
     wx.request({
-      url: App.api.discussions.index,
+      url: App.api.discussions.random,
       method: 'GET',
       header: {
         'content-type': 'application/json'
